@@ -43,9 +43,8 @@ for index in range(len(nameCopy)):
 	message['From'] = myEmail
 	message['To'] = theirEmail
 	message['Subject'] = 'Secret Santa'
-
 	message.attach(MIMEText(mailContent, 'plain'))
-
+	# Create a SMTP session to send the email
 	session = smtplib.SMTP('smtp.gmail.com', 587)
 	session.connect("smtp.gmail.com", 587)
 	session.ehlo()
