@@ -7,7 +7,12 @@ from email.mime.text import MIMEText
 
 def Main():
 
-	myEmail = "sharwin24@gmail.com"
+	emailAndPass = open(emailAndPass, "r")
+	inputCredentials = emailAndPass.readlines()
+	credentialsList = [x.split(" ") for x in inputCredentials]
+
+	myEmail = credentialsList[0]
+	myPass = credentialsList[1]
 
 	names = []
 	emails = []
@@ -42,6 +47,26 @@ def Main():
 	for index in range(len(nameCopy)):
 
 		# Create mail message
+		mailContent = f''' Hello {nameCopy[i]},
+		You are the secret santa of {recipients[i]}!
+		Remember the budget is ${budget}.
+
+		- Python script at (https://github.com/Sharwin24/Secret-Santa)
+ 		'''
+
+ 		message = MIMEMultipart()
+ 		message['From'] = myEmail
+ 		message['To'] = emails[i]
+ 		message['Subject'] = 'Secret Santa'
+
+ 		message.attach(MIMEText(mailContent, 'plain'))
+
+ 		session = smtplib.SMTP('smtp.gmail.com', 587)
+ 		session.connect("smtp.gmail.com", 587)
+ 		session.ehlo()
+ 		session.starttls()
+ 		session.login()
+
 
 if __name__ == "__main__":
 	Main()
