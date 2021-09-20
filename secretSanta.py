@@ -15,7 +15,7 @@ myPass = credentialsList[0][1]
 names = []
 emails = []
 recipients = []
-budget = 50
+budget = 25
 
 # print("Provide a txt document in the same directory with the specific format of: name, email address")
 # fileName = str(input("Name of the txt file with the .txt at the end: "))
