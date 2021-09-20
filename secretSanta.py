@@ -35,8 +35,9 @@ for name in nameCopy:
 	names.remove(randomName)
 
 for index in range(len(nameCopy)):
+	print("Sending email number " + str(index + 1))
 	# Create mail message
-	mailContent = "Hello {nameCopy[index]},\nYou are the secret santa of {recipients[index]}! Remember the budget is ${budget}.\n\nPython script at (https://github.com/Sharwin24/Secret-Santa)"
+	mailContent = f"Hello {nameCopy[index]},\nYou are the secret santa of {recipients[index]}! Remember the budget is ${budget}.\n\nPython script at:\n https://github.com/Sharwin24/Secret-Santa"
 	theirEmail = emails[index]
 	message = MIMEMultipart()
 	message['From'] = myEmail
@@ -53,6 +54,3 @@ for index in range(len(nameCopy)):
 	toEmail = message.as_string()
 	session.sendmail(myEmail, theirEmail, toEmail)
 	session.quit()
-
-print(nameCopy)
-print(recipients)
