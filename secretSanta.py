@@ -38,7 +38,7 @@ for name in nameCopy:
 for index in range(len(nameCopy)):
 	print("Sending email number " + str(index + 1))
 	# Create mail message
-	mailContent = f"Hello {nameCopy[index]},\nYou are the secret santa of {recipients[index]}! Remember the budget is ${budget}. Gifts will be given on ${giftDate}!\n\nPython script at:\n https://github.com/Sharwin24/Secret-Santa"
+	mailContent = f"Hello {nameCopy[index]},\nYou are the secret santa of {recipients[index]}! Remember the budget is ${budget}. Gifts will be given on {giftDate}!\n\nPython script at:\n https://github.com/Sharwin24/Secret-Santa"
 	theirEmail = emails[index]
 	message = MIMEMultipart()
 	message['From'] = myEmail
