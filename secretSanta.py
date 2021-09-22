@@ -15,17 +15,19 @@ myPass = credentialsList[0][1]
 names = []
 emails = []
 recipients = []
-budget = 25
+budget = 0
+giftDate = ""
 
-# print("Provide a txt document in the same directory with the specific format of: name, email address")
-# fileName = str(input("Name of the txt file with the .txt at the end: "))
-fileName = "names.txt"
+fileName = "SecretSantaSetup.txt"
 text = open(fileName,"r")
 inputString = text.readlines()
-inputRows = [x.replace("\n","").split(", ") for x in inputString]
-for x in inputRows:
+inputRows = [x.replace("\n","").strip().split(",") for x in inputString]
+budget = inputRows[0][0]
+giftDate = inputRows[0][1]
+for x in inputRows[1:]:
 	names.append(x[0])
 	emails.append(x[1])
+print(names)
 
 nameCopy = names.copy()
 for name in nameCopy:
@@ -37,7 +39,7 @@ for name in nameCopy:
 for index in range(len(nameCopy)):
 	print("Sending email number " + str(index + 1))
 	# Create mail message
-	mailContent = f"Hello {nameCopy[index]},\nYou are the secret santa of {recipients[index]}! Remember the budget is ${budget}.\n\nPython script at:\n https://github.com/Sharwin24/Secret-Santa"
+	mailContent = f"Hello {nameCopy[index]},\nYou are the secret santa of {recipients[index]}! Remember the budget is ${budget}. Gifts will be given on ${giftDate}!\n\nPython script at:\n https://github.com/Sharwin24/Secret-Santa"
 	theirEmail = emails[index]
 	message = MIMEMultipart()
 	message['From'] = myEmail
