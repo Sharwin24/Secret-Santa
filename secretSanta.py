@@ -27,7 +27,6 @@ giftDate = inputRows[0][1]
 for x in inputRows[1:]:
 	names.append(x[0])
 	emails.append(x[1])
-print(names)
 
 nameCopy = names.copy()
 for name in nameCopy:
@@ -55,3 +54,4 @@ for index in range(len(nameCopy)):
 	toEmail = message.as_string()
 	session.sendmail(myEmail, theirEmail, toEmail)
 	session.quit()
+print("Finished sending emails!")
