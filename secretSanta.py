@@ -72,7 +72,7 @@ def Main():
             print(f"Error sending email {index + 1}")
             print("===============================")
             print(e)
-            print("===============================")
+            print("===============================\n")
             erroredEmails = erroredEmails + 1
     print(f"Successfully sent {len(nameCopy) - erroredEmails} emails")
 
