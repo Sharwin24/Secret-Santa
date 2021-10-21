@@ -7,6 +7,7 @@ from email.mime.text import MIMEText
 
 def Main():
     print("Running Secret-Santa")
+    input("Press Enter to Continue (This will send emails!)")
     # Collect credential information
     with open("credentials.txt", "r") as f:
         inputCredentials = f.readlines()
