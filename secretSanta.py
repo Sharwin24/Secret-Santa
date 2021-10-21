@@ -8,12 +8,8 @@ from email.mime.text import MIMEText
 def Main():
     print("Running Secret-Santa")
     # Collect credential information
-    try:
-        credentialText = open("credentials.txt", "r")
-    except:
-        print("Invalid credentials file name")
-        return
-    inputCredentials = credentialText.readlines()
+    with open("credentials.txt", "r") as f:
+        inputCredentials = f.readlines()
     credentialsList = [x.split(" ") for x in inputCredentials]
     myEmail = credentialsList[0][0]
     myPass = credentialsList[0][1]
